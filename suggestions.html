@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions - Mike Gents QOL Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Mike Gents QOL Hub</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explosives.html">Explosives Calculator</a></li>
+            <li><a href="suggestions.html" class="active">Suggestions</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="suggestions-page">
+            <h1>Suggestions</h1>
+            <p class="intro-text">Have an idea for a new calculator or feature? Let us know!</p>
+
+            <form id="suggestions-form" class="suggestions-form">
+                <div class="form-group">
+                    <label for="name">Name (optional)</label>
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="calculator">New Calculator</option>
+                        <option value="feature">New Feature</option>
+                        <option value="improvement">Improvement</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="suggestion">Your Suggestion</label>
+                    <textarea id="suggestion" name="suggestion" rows="6" required 
+                        placeholder="Describe your idea or suggestion here..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Suggestion</button>
+            </form>
+
+            <div id="success-message" class="success-message" style="display: none;">
+                Thank you for your suggestion! We'll review it soon.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('suggestions-form');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const category = document.getElementById('category').value;
+            const suggestion = document.getElementById('suggestion').value;
+
+            // Here you would typically send this data to a server
+            // For now, we'll just show a success message
+            console.log('Suggestion received:', { name, category, suggestion });
+
+            // Show success message
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+
+            // Optional: Reset form after submission
+            form.reset();
+        });
+    </script>
+</body>
+</html> 
