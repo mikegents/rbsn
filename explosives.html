@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explosives Calculator - Mike Gents QOL Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Mike Gents QOL Hub</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explosives.html" class="active">Explosives Calculator</a></li>
+            <!-- More calculators can be added here -->
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Rust Explosive Calculator</h1>
+        
+        <div class="form-group">
+            <label for="explosive-type">Select Explosive Type:</label>
+            <select id="explosive-type" name="explosive-type" required>
+                <option value="explosives">Explosives (Crafts 10)</option>
+                <option value="timed-explosive-charge-c4">Timed Explosive Charge (C4)</option>
+                <option value="rocket">Rocket</option>
+                <option value="high-velocity-rocket">High Velocity Rocket</option>
+                <option value="satchel-charge">Satchel Charge</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+        </div>
+
+        <button type="submit" id="calculate-btn">CALCULATE</button>
+
+        <div class="result-container">
+            <h2>Material Requirements:</h2>
+            <ul id="material-list"></ul>
+        </div>
+    </div>
+    <script src="explosives.js"></script>
+</body>
+</html>

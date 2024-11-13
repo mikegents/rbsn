@@ -8,21 +8,27 @@ const EXPLOSIVE_TYPES = Object.freeze({
         },
         totalResources: {
             'Metal Fragments': 10,
-            'Total Sulfur': 300,      // From crafting requirements
-            'Total Charcoal': 450,    // From crafting requirements
+            'Total Sulfur': 110,    // (50 Gunpowder ÷ 10) × 20 + 10 additional
+            'Total Charcoal': 150,  // (50 Gunpowder ÷ 10) × 30
             'Low Grade Fuel': 3
         },
         craftingSteps: [
-            "1. Collect materials",
-            "2. Craft Gunpowder (50 Gunpowder needs: 100 Sulfur + 150 Charcoal)",
-            "3. Add additional 10 Sulfur and 3 Low Grade Fuel",
-            "4. Use Level 1 Workbench or higher",
-            "5. Final Assembly: Combine all materials (10 Metal Fragments + 50 Gunpowder + 3 Low Grade + 10 Sulfur)",
-            "6. Craft time: 30 seconds"
+            "1. Craft Gunpowder first:",
+            "   - 50 Gunpowder needs: 100 Sulfur + 150 Charcoal",
+            "   - (10 Gunpowder = 20 Sulfur + 30 Charcoal)",
+            "2. Add additional materials:",
+            "   - 10 Metal Fragments",
+            "   - 10 Sulfur",
+            "   - 3 Low Grade Fuel",
+            "3. Use Level 1 Workbench or higher",
+            "4. Final Assembly: Combine all materials",
+            "5. Craft time: 30 seconds",
+            "6. CRAFTS 10 EXPLOSIVES PER CRAFT"
         ],
-        notes: "Basic explosive component used in crafting C4 and Rockets.",
+        notes: "Basic explosive component used in crafting C4 and Rockets. Crafts 10 at a time.",
         workbench: "Level 1",
-        craftTime: "30 seconds"
+        craftTime: "30 seconds",
+        outputAmount: 10
     },
     'timed-explosive-charge-c4': {
         materials: {
@@ -32,8 +38,8 @@ const EXPLOSIVE_TYPES = Object.freeze({
         },
         totalResources: {
             'Metal Fragments': 200,   // 20 × 10
-            'Total Sulfur': 2200,     // From crafting requirements
-            'Total Charcoal': 3000,   // From crafting requirements
+            'Total Sulfur': 2200,     // 20 × 110
+            'Total Charcoal': 3000,   // 20 × 150
             'Low Grade Fuel': 60,     // 20 × 3
             'Tech Trash': 2,
             'Cloth': 60
@@ -116,12 +122,11 @@ const EXPLOSIVE_TYPES = Object.freeze({
         },
         totalResources: {
             'Metal Fragments': 120,    // 4 Bean Cans × 30 Metal Fragments
-            'Gunpowder': 240,         // 4 Bean Cans × 60 Gunpowder
-            'Total Sulfur': 480,      // (240 Gunpowder ÷ 10) × 20
-            'Total Charcoal': 720,    // (240 Gunpowder ÷ 10) × 30
+            'Total Sulfur': 480,       // (240 Gunpowder ÷ 10) × 20
+            'Total Charcoal': 720,     // (240 Gunpowder ÷ 10) × 30
             'Rope': 1,
-            'Cloth': 50,             // For Small Stash
-            'Wood': 300              // For Small Stash
+            'Cloth': 50,              // For Small Stash
+            'Wood': 300               // For Small Stash
         },
         craftingSteps: [
             "1. Craft 4 Bean Can Grenades first:",
@@ -224,4 +229,4 @@ quantityInput.addEventListener('input', (e) => {
     } else {
         e.target.setCustomValidity('');
     }
-});
+}); 

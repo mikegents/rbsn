@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Joey ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .joey-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .joey-page h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .joey-page p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .heart-container {
+            font-size: 5rem;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateX(5px);
+        }
+
+        .message {
+            font-family: 'Courier New', monospace;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            max-width: 600px;
+        }
+
+        /* Add styles for the initial overlay */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 1s ease;
+        }
+
+        .welcome-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .enter-button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .enter-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        /* Make audio controls more subtle */
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .audio-controls:hover {
+            opacity: 1;
+        }
+
+        .audio-controls button {
+            background: rgba(255,255,255,0.3);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .audio-controls button:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .volume-slider {
+            width: 100px;
+            margin: 0 10px;
+        }
+
+        .image-container {
+            margin: 30px auto;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            max-width: 400px;  /* Adjust this value to change image size */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .joey-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        /* Add a subtle pulse animation to the image */
+        @keyframes gentle-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .image-container:hover .joey-image {
+            animation: gentle-pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Overlay -->
+    <div class="welcome-overlay" id="welcome-overlay">
+        <div class="welcome-content">
+            <h2>Welcome to Joey's Page</h2>
+            <p>❤️ Click to enter ❤️</p>
+            <button class="enter-button" id="enter-button">Enter</button>
+        </div>
+    </div>
+
+    <div class="joey-page">
+        <a href="index.html" class="back-btn">← Back to Hub</a>
+        <h1>For Joey</h1>
+        <div class="heart-container">❤️</div>
+        
+        <!-- Updated image container -->
+        <div class="image-container">
+            <img src="images/joeyheart.png" alt="Joey Heart" class="joey-image">
+        </div>
+
+        <div class="message">
+            <p>This site wouldn't be possible without your support and inspiration.</p>
+            <p>Thank you for being awesome!</p>
+        </div>
+
+        <!-- Updated Audio Element -->
+        <audio id="background-music" loop>
+            <source src="music/joeymusic.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Audio Controls -->
+        <div class="audio-controls">
+            <button id="toggle-music">Pause</button>
+            <input type="range" class="volume-slider" id="volume-control" min="0" max="1" step="0.1" value="0.3">
+        </div>
+    </div>
+
+    <script>
+        const music = document.getElementById('background-music');
+        const toggleButton = document.getElementById('toggle-music');
+        const volumeControl = document.getElementById('volume-control');
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        const enterButton = document.getElementById('enter-button');
+        let isPlaying = false;
+
+        // Set initial volume
+        music.volume = 0.3;
+
+        // Function to start everything
+        function startExperience() {
+            // Play music
+            music.play()
+                .then(() => {
+                    isPlaying = true;
+                    toggleButton.textContent = 'Pause';
+                })
+                .catch(error => {
+                    console.log("Audio autoplay failed:", error);
+                    toggleButton.textContent = 'Play';
+                });
+
+            // Fade out and remove overlay
+            welcomeOverlay.style.opacity = '0';
+            setTimeout(() => {
+                welcomeOverlay.style.display = 'none';
+            }, 1000);
+        }
+
+        // Function to toggle music
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                toggleButton.textContent = 'Play';
+            } else {
+                music.play();
+                toggleButton.textContent = 'Pause';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Function to update volume
+        function updateVolume() {
+            music.volume = volumeControl.value;
+        }
+
+        // Event listeners
+        enterButton.addEventListener('click', startExperience);
+        toggleButton.addEventListener('click', toggleMusic);
+        volumeControl.addEventListener('input', updateVolume);
+
+        // Handle page visibility changes
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && isPlaying) {
+                music.pause();
+                toggleButton.textContent = 'Play';
+                isPlaying = false;
+            }
+        });
+    </script>
+</body>
+</html> 
